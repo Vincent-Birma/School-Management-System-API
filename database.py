@@ -1,7 +1,6 @@
 import sqlite3
 
 def connect():
-	def db_connect():
 	conn = sqlite3.connect('School.db')
 	conn.row_factory = sqlite3.Row
 	return conn
@@ -9,7 +8,7 @@ def connect():
 def staff_table():
 	conn = connect()
 	conn.execute(""" 
-			CREATE TABLE IF NOT EXITS Staff_record
+			CREATE TABLE IF NOT EXISTS Staff_record
 			 (
 			 	Id INTEGER PRIMARY KEY AUTOINCREMENT,
 			 	Name TEXT NOT NULL,
@@ -23,7 +22,7 @@ def staff_table():
 
 def student_table():
 	conn = connect()
-	conn.execute(""" CREATE TABLE IF NOT EXITS Student_record
+	conn.execute(""" CREATE TABLE IF NOT EXISTS Student_record
 		(
 				Id INTEGER PRIMARY KEY AUTOINCREMENT,
 				Reg_No VARCHAR NOT NULL UNIQUE,
@@ -38,7 +37,7 @@ def student_table():
 
 def course_table():
 	conn = connect()
-	conn.execute(""" CREATE TABLE IF NOT EXITS Course_registraton
+	conn.execute(""" CREATE TABLE IF NOT EXISTS Course_registraton
 		(
 				Id INTEGER PRIMARY KEY AUTOINCREMENT,
 				Reg_No VARCHAR NOT NULL UNIQUE,
